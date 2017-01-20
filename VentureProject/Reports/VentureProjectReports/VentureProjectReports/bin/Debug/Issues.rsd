@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>Shark</DataSourceReference>
+      <CommandText>SELECT        i.IssueNumber, i.Issue, i.TargetDate, iStatus.IssueStatus, rsrce.Resource
+FROM            Issue AS i INNER JOIN
+                         ProjectTeam AS pt ON i.ProjectTeamID = pt.ProjectTeamID INNER JOIN
+                         Resource AS rsrce ON pt.ResourceID = rsrce.ResourceID INNER JOIN
+                         IssueStatus AS iStatus ON i.IssueStatusID = iStatus.IssueStatusID
+WHERE        (i.IssueTypeID = 1)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="IssueNumber">
+        <DataField>IssueNumber</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Issue">
+        <DataField>Issue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TargetDate">
+        <DataField>TargetDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="IssueStatus">
+        <DataField>IssueStatus</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Resource">
+        <DataField>Resource</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

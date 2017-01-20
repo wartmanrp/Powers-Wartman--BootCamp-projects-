@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="parkinglotModelStoreContainer" CdmEntityContainer="parkinglotEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="parkinglotModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cell" ColumnName="Cell" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeyCards">
+      <EntityTypeMapping TypeName="parkinglotModel.KeyCard">
+        <MappingFragment StoreEntitySet="KeyCard">
+          <ScalarProperty Name="KeyCardKey" ColumnName="KeyCardKey" />
+          <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LotStays">
+      <EntityTypeMapping TypeName="parkinglotModel.LotStay">
+        <MappingFragment StoreEntitySet="LotStay">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LotStayKey" ColumnName="LotStayKey" />
+          <ScalarProperty Name="StartStay" ColumnName="StartStay" />
+          <ScalarProperty Name="EndStay" ColumnName="EndStay" />
+          <ScalarProperty Name="KeyCardKey" ColumnName="KeyCardKey" />
+          <ScalarProperty Name="ParkingSpotKey" ColumnName="ParkingSpotKey" />
+          <ScalarProperty Name="StayCost" ColumnName="StayCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingLots">
+      <EntityTypeMapping TypeName="parkinglotModel.ParkingLot">
+        <MappingFragment StoreEntitySet="ParkingLot">
+          <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParkingSpots">
+      <EntityTypeMapping TypeName="parkinglotModel.ParkingSpot">
+        <MappingFragment StoreEntitySet="ParkingSpot">
+          <ScalarProperty Name="ParkingSpotKey" ColumnName="ParkingSpotKey" />
+          <ScalarProperty Name="ParkingSpotNumber" ColumnName="ParkingSpotNumber" />
+          <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerHourRates">
+      <EntityTypeMapping TypeName="parkinglotModel.PerHourRate">
+        <MappingFragment StoreEntitySet="PerHourRate">
+          <ScalarProperty Name="PerHourRateKey" ColumnName="PerHourRateKey" />
+          <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+          <ScalarProperty Name="PerHourRate1" ColumnName="PerHourRate" />
+          <ScalarProperty Name="RateStart" ColumnName="RateStart" />
+          <ScalarProperty Name="RateEnd" ColumnName="RateEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="parkinglotModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

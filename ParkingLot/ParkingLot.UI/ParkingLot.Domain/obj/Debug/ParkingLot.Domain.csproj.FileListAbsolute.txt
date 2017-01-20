@@ -1,0 +1,4 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Domain\bin\Debug\ParkingLot.Domain.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Domain\bin\Debug\ParkingLot.Domain.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Domain\obj\Debug\ParkingLot.Domain.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Domain\obj\Debug\ParkingLot.Domain.pdb

@@ -1,0 +1,94 @@
+﻿@using Cts.Venture.Web
+@model Cts.Venture.Dto.ViewTodayDto
+
+@{
+   ViewBag.Title = "Today";
+   Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
+}
+
+<!--TODO ask andrew get tables to filter and sort-->
+@Scripts.Render("~/bundles/table")
+
+<div class="row">
+    <div class="jumbotron text-center display-1"><h2>@ViewBag.Title</h2></div>
+    <!--LeftsideNavBar-->
+    <div class="col-md-2">
+        <div class="list-group">
+            <a class="list-group-item-heading">Forms<span class="pull-right"><i class="fa fa-angle-double-up"></i></span></a>
+            @Html.ActionLink("Today", "Index", "ViewToday", null, new { @class = "list-group-item"})
+            @Html.ActionLink("Project Maintenance","ProjectMaintenance","ProjectMaintenance", new { id =0}, new { @class = "list-group-item" })
+            <a class="list-group-item disabled" href="#">Administration</a>
+        </div>
+        <div class="list-group">
+            <a class="list-group-item-heading">Reports<span class="pull-right"><i class="fa fa-angle-double-up"></i></span></a>
+            <a class="list-group-item disabled" href="#">Flag</a>
+            <a class="list-group-item disabled" tooltip="Must be on Project Details to view status report" href="#">Weekly Status</a>
+            <a class="list-group-item disabled" href="#">Line of Business</a>
+            <a class="list-group-item disabled" href="#">Lessons Learned</a>
+            <a class="list-group-item disabled" href="#">Report Server</a>
+        </div>
+    <!--Links will go here-->
+    </div>
+
+    <div class="col-md-10 today-pane">
+        <hr />
+        <div id="ProjectTrackingItems">
+            @{
+               Html.RenderAction("GetProjectTrackingItemsPartial", new { user = Model.User.ResourceId });
+            }
+        </div>
+        <hr />
+
+        @{
+           Html.RenderAction("GetProjectMilestonesPartial", new { user = Model.User.ResourceId });
+        }
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h4 class="text-center">My Projects</h4>
+                <div class="row">
+                    <!--boxes go here-->
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="projNum" class="col-md-4 col-form-label">Project Number </label>
+                            <div class="col-md-8">
+                                <input type="text" id="projNum" placeholder="Project Number" class="form-control"/>
+                            </div>
+                        </div>
+                            <br />
+                        <div class="form-group row">
+                            <label for="projNum" class="col-md-4 col-form-label">Project Name</label>
+                            <div class="col-md-8">
+                                <input type="text" id="projName" placeholder="Project Name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--button goes here-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <!--TODO get the spacing here fixed so button is below-->
+                            <div class="col-md-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-md-12">
+                                <button class="btn btn-success btn-default" id="searchBtn" onclick="getSearchResults()">Search Projects</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" id="searchResults">
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

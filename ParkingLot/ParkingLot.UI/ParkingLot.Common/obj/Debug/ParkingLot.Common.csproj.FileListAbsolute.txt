@@ -1,0 +1,4 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Common\bin\Debug\ParkingLot.Common.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Common\bin\Debug\ParkingLot.Common.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Common\obj\Debug\ParkingLot.Common.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Common\obj\Debug\ParkingLot.Common.pdb

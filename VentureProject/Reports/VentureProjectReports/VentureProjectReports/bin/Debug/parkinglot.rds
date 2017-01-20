@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="parkinglot">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=PWARTMANLT;Initial Catalog=parkinglot</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source parkinglot</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>d2846bd0-f6b7-43f7-81fd-bee6099762ba</DataSourceID>
+</RptDataSource>

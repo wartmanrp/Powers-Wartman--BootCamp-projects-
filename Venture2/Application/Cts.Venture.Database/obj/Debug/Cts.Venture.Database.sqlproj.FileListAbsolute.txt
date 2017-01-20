@@ -1,0 +1,5 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.Venture.Database\bin\Debug\Cts.Venture.Database.dacpac
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.Venture.Database\obj\Debug\Cts.Venture.Database.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.Venture.Database\obj\Debug\Cts.Venture.Database.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.Venture.Database\bin\Debug\Cts.Venture.Database.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.Venture.Database\bin\Debug\Cts.Venture.Database.pdb

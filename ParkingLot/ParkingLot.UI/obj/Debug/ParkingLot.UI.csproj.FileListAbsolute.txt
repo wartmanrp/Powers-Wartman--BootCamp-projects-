@@ -1,0 +1,17 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.UI.exe.config
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.UI.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.UI.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Common.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Dto.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Service.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Data.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\EntityFramework.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Service.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Common.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Dto.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\bin\Debug\ParkingLot.Data.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\obj\Debug\ParkingLot.UI.csprojResolveAssemblyReference.cache
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\obj\Debug\ParkingLot.UI.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\obj\Debug\ParkingLot.UI.pdb

@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cts.Venture.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Cts.Venture.Domain.GenerateNewProjectNumber">
+            <summary>This class contains methods pertaining to generating
+            a new project number when a new project is saved to 
+            the db.
+            </summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Domain.GenerateNewProjectNumber.NewProjectNumber(System.Int32)">
+            <summary>
+            This method will be passed a string of the most 
+            recent sequence number, it will then parse the 
+            string into an int and build a new string to 
+            generate a new project number.
+            </summary>
+            <param name="lastsequence">A non nullable integer related to the project
+            being queried</param>
+            <returns>A string formed through concatenating the param and the current year
+            </returns>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="T:Cts.Venture.Domain.Business.GetPercentComplete">
+            <summary>This class allows a project to calculate its completion percentage.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Domain.Business.GetPercentComplete.CalculateProjectCompletion(System.Nullable{System.Int32},System.Nullable{System.Decimal}[])">
+            <summary>This method takes a project id and an array of decimals to calculate the project completion percentage for a project.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions>InvalidOperationException is possible.</exceptions>
+            <return>A nullable decimal which will always equal at least 0.</return>
+            <param name="projId">A projectId used simply to determine if the percent complete is being assigned to an existing project or not.</param>
+            <param name="milestonesList">An array of decimal?'s generated in the service method. These are parsed and factored to determine the return value.</param>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="T:Cts.Venture.Domain.ProjectStatusFlags">
+            <summary>This class is used to set the status flags for search results on the View Today page.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Domain.ProjectStatusFlags.StatusColor(System.Nullable{System.DateTime})">
+            <summary>This method receives a datetime and returns a string equivalent of a color. This is used to set an element on the page to display an icon.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <return>One of three string results matching the possible colors used for icon generation.</return>
+            <param name="statusdate">A nullable datetime</param>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="T:Cts.Venture.Domain.CheckProjectMilestones">
+            <summary>This business rule is used to determine if a project milestone meets 
+            the conditions to be considered "upcoming" or "overdue"</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Domain.CheckProjectMilestones.IsUpcoming(System.Nullable{System.DateTime})">
+            <summary>This method returns a bool to determine if a milestone is upcoming.</summary>
+            <param name="BaselineFinish">A nullable datetime to check against</param>
+            <returns>Boolean result regardless of whether param is null</returns>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="M:Cts.Venture.Domain.CheckProjectMilestones.IsOverDue(System.Nullable{System.DateTime})">
+            <summary>This method returns a bool to determine if a milestone is overdue.</summary>
+            <param name="BaselineFinish">A nullable datetime to check against</param>
+            <returns>Boolean result regardless of whether param is null</returns>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="T:Cts.Venture.Domain.CheckIssue">
+            <summary>This business rule is used to determine if a project tracking
+            item meets the conditions to be considered "upcoming" or "overdue"
+            </summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Domain.CheckIssue.IsUpcoming(System.Nullable{System.DateTime})">
+            <summary>This method returns a bool to determine if an item is upcoming.</summary>
+            <param name="TargetDate">A nullable datetime to check against</param>
+            <returns>Boolean result regardless of whether param is null</returns>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="M:Cts.Venture.Domain.CheckIssue.IsOverDue(System.Nullable{System.DateTime})">
+            <summary>This method returns a bool to determine if an item is upcoming.</summary>
+            <param name="TargetDate">A nullable datetime to check against</param>
+            <returns>Boolean result regardless of whether param is null</returns>
+            <history>
+            Date    Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16 Powers Wartman  Created              
+            ----------------------------------------------------------------
+            </history>
+        </member>
+    </members>
+</doc>

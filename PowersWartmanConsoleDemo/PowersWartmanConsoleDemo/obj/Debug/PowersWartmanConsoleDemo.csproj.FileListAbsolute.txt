@@ -1,0 +1,6 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\bin\Debug\PowersWartmanConsoleDemo.exe.config
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\bin\Debug\PowersWartmanConsoleDemo.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\bin\Debug\PowersWartmanConsoleDemo.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\obj\Debug\PowersWartmanConsoleDemo.csprojResolveAssemblyReference.cache
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\obj\Debug\PowersWartmanConsoleDemo.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\PowersWartmanConsoleDemo\PowersWartmanConsoleDemo\obj\Debug\PowersWartmanConsoleDemo.pdb

@@ -1,0 +1,71 @@
+﻿@using Cts.Venture.Web
+@model Cts.Venture.Dto.ProjectDetailsDto
+
+@{
+   ViewBag.Title = "Project Maintenance";
+   Layout = "~/Views/Shared/_BootstrapLayout.cshtml";
+}
+
+<div class="jumbotron text-center"><h2>@ViewBag.Title</h2></div>
+<!--LeftsideNavBar-->
+<div class="row">
+    <div class="col-md-2">
+        <div class="list-group">
+            <a class="list-group-item-heading">Forms<span class="pull-right"><i class="fa fa-angle-double-up"></i></span></a>
+            @Html.ActionLink("Today", "Index", "ViewToday", null, new { @class = "list-group-item"})
+            @*@Html.ActionLink("Project Maintenance", "ProjectMaintenance", "ProjectMaintenance", new { id = Model.User.ResourceId }, new { @class = "list-group-item" })*@
+            <a class="list-group-item disabled" href="#">Administration</a>
+        </div>
+        <div class="list-group">
+            <a class="list-group-item-heading">Reports<span class="pull-right"><i class="fa fa-angle-double-up"></i></span></a>
+            <a class="list-group-item disabled" href="#">Flag</a>
+            @if(Model.ProjectId > 0)
+            {
+                <a class="list-group-item" href="http://localhost/Reports/report/WeeklyStatusReport?ProjectId=@Model.ProjectId">Weekly Status</a>
+
+            }
+            else
+            {
+                <a class="list-group-item disabled" href="#">Weekly Status</a>
+            }
+            <a class="list-group-item disabled" href="#">Line of Business</a>
+            <a class="list-group-item disabled" href="#">Lessons Learned</a>
+            <a class="list-group-item disabled" href="#">Report Server</a>
+        </div>
+        <!--Links will go here-->
+    </div>
+
+    <div class="col-md-10">
+        <div class="panel panel-default">
+                <ul class="nav nav-tabs" role="tablist" id="tabs">
+                    <li role="presentation" class="active"><a href="#details" role="tab" aria-controls="details" data-toggle="tab">Details</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Project Status</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Milestones</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Issues</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Risks</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Financial Information</a></li>
+                    <li role="presentation"><a href="#team" role="tab" aria-controls="team" data-toggle="tab">Team</a></li>
+                    <li role="presentation"><a href="#" role="tab" aria-controls="team" data-toggle="tab">Lessons Learned</a></li>
+
+                </ul>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="details">
+                        @{
+                            Html.RenderAction("GetProjectDetailsPartial", new { id = Model.ProjectId });
+                        }
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="team">
+                        @{ 
+                            Html.RenderAction("GetProjectTeamPartial", new { id = Model.ProjectId });
+                        }
+
+                        @{
+                            Html.RenderAction("GetAddTeamPartial", new { projId = Model.ProjectId});
+                        }
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

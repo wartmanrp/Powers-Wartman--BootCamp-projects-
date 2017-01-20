@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = null;
+}
+@using Cts.Venture.Web
+@model Cts.Venture.Dto.IndicatorDto
+
+@using (Html.BeginForm("Save", "ProjectDetail"))
+{
+    @Html.HiddenFor(x => x.IndicatorId)
+
+    @Html.TextBoxFor(x => x.ProjectIndicator)
+    @Html.TextBoxFor(x => x.SortNumber)
+    @*@Html.DropDownListEx("StatusId", Model.StatusList, Model.StatusId, null, true)*@
+    <button type="submit"></button>
+
+}

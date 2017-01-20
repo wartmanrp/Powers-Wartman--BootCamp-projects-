@@ -1,0 +1,64 @@
+﻿@using Cts.Venture.Web
+@model Cts.Venture.Dto.ProjectTeamDetailsDto
+
+<form class="form-inline row" id="teamForm">
+    @*<input data-val="true" id="ProjectId" name="ProjectId" type="hidden" value="@Model.Project.ProjectId" />*@
+    @*<input data-val="true" id="RoleId" name="RoleId" type="hidden" value="@Model.RoleId" />*@
+    @*<input data-val="true" id="ResourceId" name="ResourceId" type="hidden" value="@Model.ResourceId" />*@
+    <input data-val="true" id="ProjectTeamRoleId" name="ProjectTeamRoleId" type="hidden" value="0" />
+    <input data-val="true" id="ProjectTeamId" name="ProjectTeamId" type="hidden" value="0" />
+
+    <div class="form-group col-md-4">
+        <label class="col-md-4" for="RoleId">Role:</label>
+        <div class="col-md-8">
+            @Html.DropDownListEx("RoleId", @Model.RolesList, Model.RoleId, new { @class = "form-control", id = "Roles" }, false)
+        </div>
+    </div>
+
+    <div class="form-group col-md-4 col-md-offset-1">
+        <label class="col-md-4" for="ResourceId" id="Resources">Resource:</label>
+        <div class="col-md-8">
+            @Html.DropDownListEx("ResourceId", @Model.ResourcesList, Model.ResourceId, new { @class = "form-control", id = "Resources" }, false)
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<div class="button-group">
+    @if (Model.Project.ProjectId > 0)
+    {
+        <input type="button" value="Insert" id="insert" class="btn btn-success col-md-3" onclick="addProjectTeam()" />
+    }
+    else
+    {
+        <input type="button" value="Insert" id="insert" class="btn btn-default col-md-3" disabled data-toggle="tooltip" data-placement="top" title="You must be viewing a project to add teams!"/>
+    }
+    <input type="reset" value="Cancel" id="cancel" class="btn btn-warning col-md-3 col-md-offset-1" onclick="resetButton()" />
+</div>
+
+@*<script type="text/javascript">
+        function addProjectTeam() {
+            var object = function () {
+                var dto = {};
+                dto.ProjectId = $('#ProjectId').val();
+                dto.RoleId = $('#RoleId').val();
+                dto.ResourceId = $('#ResourceId').val();
+                dto.ProjectTeamRoleId = $('#ProjectTeamRoleId').val();
+                dto.ProjectTeamId = $('#ProjectTeamId').val();
+                return dto;
+            }
+
+            $.ajax({
+                url: "/ProjectMaintenance/AddProjectTeam",
+                type: "POST",
+                data: JSON.stringify(object),
+                dataType: "html",
+                contentType: "application/json",
+                success: function (data) {
+                    $('#projectTeamTable').replaceWith(data);
+
+                }
+            })
+        }
+    </script>*@

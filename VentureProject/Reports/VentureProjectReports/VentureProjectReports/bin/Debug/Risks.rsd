@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>Shark</DataSourceReference>
+      <CommandText>SELECT        r.RiskNumber, r.Risk, r.MitigationApproach, r.TargetDate, re.Resource, rs.RiskStatus
+FROM            Risk AS r INNER JOIN
+                         ProjectTeam AS pt ON pt.ProjectTeamID = r.ProjectTeamID INNER JOIN
+                         Resource AS re ON re.ResourceID = pt.ResourceID INNER JOIN
+                         RiskStatus AS rs ON rs.RiskStatusID = r.RiskStatusID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="RiskNumber">
+        <DataField>RiskNumber</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Risk">
+        <DataField>Risk</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MitigationApproach">
+        <DataField>MitigationApproach</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TargetDate">
+        <DataField>TargetDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Resource">
+        <DataField>Resource</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RiskStatus">
+        <DataField>RiskStatus</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cts.Venture.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Cts.Venture.Service.Context">
+            <summary>
+            The class holds state information for the service layer.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Service.Context.DbContext">
+            <summary>
+            Entity Framework database context.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.Context.#ctor">
+             <summary>
+             Default constructor to initialize instance variables and properties.
+             </summary>
+             <history>
+             Date   Author    Change Reason     Change Description
+             ----------------------------------------------------------------
+            
+             ----------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.Context.Dispose">
+            <summary>
+            Disposes EF context to close db connection.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.MilestonesService">
+            <summary>This class contains a method for finding milestonedto's.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.MilestonesService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for db context.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.MilestonesService.GetUpcomingMileStones(System.Int32)">
+            <summary>This methodis used to fill a table on the view today page.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="user">An int representing the user Id.</param>
+            <return>Return a list of MilestoneDto's associated with a user.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history> 
+        </member>
+        <member name="T:Cts.Venture.Service.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Service</c> is responsible for fulfilling system use cases. Thus, services follow the façade design pattern without
+            having to contain the business logic unless in an exceptional cases. The layer is responsible for interacting with the data layer and
+            orchestrating data management using LINQ queries. The layer wraps all changes to the domain layer in a unit of work; therefore, 
+            services always initiate a transaction wherever necessary for data integrity.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.DTOs.NamespaceDoc">
+            <summary>
+            <para>
+            The <c>Cts.Venture.Service.DTOs</c> contains POCO objects used as Data Transfer objects. The DTO supports complex data visualization required by  
+            the view component. When complex data visualization is required, the services layer aggregates all of the data into a DTO instead of an 
+            entity and returns it to the presentation layer for display.
+            </para>
+            <para>
+            When entities are inadequate for the data presentation, the application should utilize DTOs as necessary. The design intent is to allow a greater 
+            separation of concern as well as a physical boundary between the presentation and service layer. The developer should define service contracts if 
+            a physical boundary is necessary. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.Exceptions.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Service.Exceptions</c> is responsible for handling exceptions in the service layer dealing with business rules and logics.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.Exceptions.UserNotFoundException">
+             <summary>
+             The exception that is thrown when user is not found or credentials are not correct.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+            <param name="inner">Child exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for serialization.
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds serialization and deserialization information.</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/> that holds streaming state.</param>
+        </member>
+        <member name="T:Cts.Venture.Service.BaseService">
+             <summary>
+             The abstract class should be inherited by all the Service classes. The class provides EF context for communicating with database.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="P:Cts.Venture.Service.BaseService.Db">
+            <summary>
+            Entity Framework database context.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.BaseService.#ctor(Cts.Venture.Data.VENTUREDbContext)">
+             <summary>
+             Default constructor.
+             </summary>
+             <param name="Dbctx">Entity Framework database context.</param>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="T:Cts.Venture.Service.ProjectMaintenanceService">
+            <summary>This class contains methods pertaining to the management of project teams. Index, modification, creation and deletion.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectMaintenanceService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for db context
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectMaintenanceService.GetProjectDetails(System.Nullable{System.Int32})">
+            <summary>Creates a dto for projectdetails partial</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="id">A nullable int for project id</param>
+            <return>Return a dto with dropdowns and detail information.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history> 
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectMaintenanceService.SaveProject(Cts.Venture.Dto.ProjectDetailsDto)">
+            <summary>Saves or edits a project</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="dto">A project details dto</param>
+            <return>Return an integer used for redirection.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history> 
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectMaintenanceService.GetNewProjectNumber">
+            <summary>Generates a new project number.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <return>Returns a string used for assigning a new project number.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history> 
+        </member>
+        <member name="T:Cts.Venture.Service.ProjectTeamService">
+            <summary>This class contains methods pertaining to the management of project teams. Index, modification, creation and deletion.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for the db context.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.GetProjectTeamDetailsDto(System.Nullable{System.Int32})">
+            <summary>Creates a dto for projectteamdetails partial</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="projId">A nullable int for project id</param>
+            <return>Return a dto with dropdowns and a table.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>     
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.GetResourcesList">
+            <summary>Builds of list of all available resources</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <return>Return a list of resources</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>     
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.GetRolesList">
+            <summary>Builds of list of all available roles</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <return>Return a list of roles</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>    
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.GetTeams(System.Nullable{System.Int32})">
+            <summary>Builds a list of all project teams on a project</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="projId">A nullable int for project id</param>
+            <return>Return a list of project team dtos associated with a project</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>    
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.GetResources(System.Nullable{System.Int32})">
+            <summary>Builds a list of all resources on a project</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="projId">A nullable int for project id</param>
+            <return>Return a list of resource dtos associated with a project</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>    
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.SaveProjectTeam(Cts.Venture.Dto.ProjectTeamDto)">
+            <summary>Saves a new projectteam or edits existing</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="dto">A project team dto for saving/editing</param>
+            <return>Void</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>    
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.AddNewProjectTeamRole(Cts.Venture.Dto.ProjectTeamDto,System.Int32)">
+            <summary>Saves a new projectteamrole or edits existing</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="dto">A project team dto for saving/editing</param>
+            <param name="teamId">A project team id for saving/editing</param>
+            <return>Void</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>    
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTeamService.RemoveProjectTeam(System.Int32)">
+            <summary>Deletes a projectteam or marks it as deleted</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="projTeamId">A project team id for deletion</param>
+            <return>Void</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history> 
+        </member>
+        <member name="T:Cts.Venture.Service.ProjectTrackingItemsService">
+            <summary>This class contains a method for returning a paged list of a user's project tracking items.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTrackingItemsService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for db connection.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.ProjectTrackingItemsService.GetProjectTrackingItems(System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>This method returns a paged list of project tracking items associated with a user.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="user">An integer representing a user Id</param>
+            <param name="pageNumber">The page number to start the paged list on.</param>
+            <param name="pageSize">How many records to put on each page.</param>
+            <param name="sort">The sorting rules for the list.</param>
+            <param name="order">The ordering rules for the list</param>
+            <param name="filter">Filters for the list</param>
+            <return>Return an IPagedList for the ViewToday page.</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>
+        </member>
+        <member name="T:Cts.Venture.Service.SearchService">
+            <summary>This class contains a method for performing searches.</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.SearchService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for db context.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.SearchService.SearchByProjectNumber(Cts.Venture.Dto.SearchParamsDto)">
+            <summary>This method returns an Ienumerable of ProjectDto's to fulfill search requests by a user on the view today page..</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <param name="input">A SearchParamsDto containg the users input.</param>      
+            <return>Return an IEnumberable of results(MyProjectDto)</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>     
+        </member>
+        <member name="T:Cts.Venture.Service.UnitOfWork`1">
+             <summary>
+             The class provides transaction when there is need to add/update/delete multiple recores or that spans tables, databases or even instances.
+             When used, the caller need to call CommitChanges() to commit the changes. Failed to call the function will result in rolling back all the
+             changes even all the changes are valid.
+             </summary>
+             <typeparam name="T">Generic type.</typeparam>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.#ctor(`0)">
+             <summary>
+             Internal constructor to initialize transaction. 
+             </summary>
+             <param name="db">Generic type.</param>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.CommitChanges">
+             <summary>
+             Saves all the changes as an unit.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.Dispose">
+             <summary>
+             Disposes the transaction and its resources.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="T:Cts.Venture.Service.UserService">
+            <summary>This class exists simply to instantiate a basic user for testing purposes in the Venture Application</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <copyright> 
+            Copyright (c) 2016 Computer Technology Solutions, Inc.  ALL      
+            RIGHTS RESERVED
+            </copyright>
+        </member>
+        <member name="M:Cts.Venture.Service.UserService.#ctor(Cts.Venture.Service.Context)">
+            <summary>
+            Constructor for db connection.
+            </summary>
+            <param name="ctx"></param>
+        </member>
+        <member name="M:Cts.Venture.Service.UserService.GetUser">
+            <summary>This method returns a vasic user object for testing purposes</summary>
+            <author>Powers Wartman</author>
+            <date>September 21, 2016</date>
+            <exceptions></exceptions>
+            <return>Return a hard-coded UserDto</return>
+            <history>
+            Date     Author          Change Reason     Change Description
+            ----------------------------------------------------------------
+            9/21/16  Powers Wartman  Created
+            ----------------------------------------------------------------
+            </history>
+        </member>
+    </members>
+</doc>

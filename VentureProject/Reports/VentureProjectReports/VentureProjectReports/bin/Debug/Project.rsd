@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>Shark</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@ProjectId">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        p.ProjectName, p.ProjectYear, p.ProjectNumber, d.Department, lob.LOB, ps.ExecutiveSummary, ps.Accomplishments, ps.PlannedActivities
+FROM            Project AS p INNER JOIN
+                         Department AS d ON p.DepartmentID = d.DepartmentID INNER JOIN
+                         LOB AS lob ON p.LOBID = lob.LOBID INNER JOIN
+                         ProjectStatus AS ps ON p.ProjectID = ps.ProjectID
+WHERE p.ProjectId = @ProjectId</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ProjectName">
+        <DataField>ProjectName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ProjectYear">
+        <DataField>ProjectYear</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="ProjectNumber">
+        <DataField>ProjectNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Department">
+        <DataField>Department</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LOB">
+        <DataField>LOB</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ExecutiveSummary">
+        <DataField>ExecutiveSummary</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Accomplishments">
+        <DataField>Accomplishments</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PlannedActivities">
+        <DataField>PlannedActivities</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

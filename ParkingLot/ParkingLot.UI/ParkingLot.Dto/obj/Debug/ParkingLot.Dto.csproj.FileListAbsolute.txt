@@ -1,0 +1,7 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\bin\Debug\ParkingLot.Dto.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\bin\Debug\ParkingLot.Dto.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\bin\Debug\ParkingLot.Common.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\bin\Debug\ParkingLot.Common.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\obj\Debug\ParkingLot.Dto.csprojResolveAssemblyReference.cache
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\obj\Debug\ParkingLot.Dto.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Dto\obj\Debug\ParkingLot.Dto.pdb

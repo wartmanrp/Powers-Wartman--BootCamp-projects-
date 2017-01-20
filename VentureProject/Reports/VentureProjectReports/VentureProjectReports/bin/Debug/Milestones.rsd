@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>Shark</DataSourceReference>
+      <CommandText>SELECT        pm.Milestone, CASE WHEN pm.ActualStart IS NULL THEN pm.BaselineStart WHEN pm.ActualStart IS NOT NULL THEN pm.ActualStart END AS Expr1, pm.BaselineStart, pm.ActualStart, pm.RevisedFinish, 
+                         pm.ActualFinish, pm.PercentComplete
+FROM            Project AS p INNER JOIN
+                         ProjectMilestone AS pm ON pm.ProjectID = p.ProjectID
+UNION ALL
+SELECT        sm.StandardMilestone, CASE WHEN psm.ActualStart IS NULL THEN psm.BaselineStart WHEN psm.ActualStart IS NOT NULL THEN psm.ActualStart END AS Expr1, psm.BaselineStart, psm.ActualStart, 
+                         psm.RevisedFinish, psm.ActualFinish, psm.PercentComplete
+FROM            Project AS p INNER JOIN
+                         ProjectStandardMilestone AS psm ON psm.ProjectID = p.ProjectID INNER JOIN
+                         StandardMilestone AS sm ON sm.StandardMilestoneID = psm.StandardMilestoneID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Milestone">
+        <DataField>Milestone</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Expr1">
+        <DataField>Expr1</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="BaselineStart">
+        <DataField>BaselineStart</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ActualStart">
+        <DataField>ActualStart</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="RevisedFinish">
+        <DataField>RevisedFinish</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="ActualFinish">
+        <DataField>ActualFinish</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="PercentComplete">
+        <DataField>PercentComplete</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="parkinglotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerKey" />
+          </Key>
+          <Property Name="CustomerKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cell" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="KeyCard">
+          <Key>
+            <PropertyRef Name="KeyCardKey" />
+          </Key>
+          <Property Name="KeyCardKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LotStay">
+          <Key>
+            <PropertyRef Name="LotStayKey" />
+          </Key>
+          <Property Name="LotStayKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StartStay" Type="datetime" Nullable="false" />
+          <Property Name="EndStay" Type="datetime" />
+          <Property Name="KeyCardKey" Type="int" Nullable="false" />
+          <Property Name="ParkingSpotKey" Type="int" Nullable="false" />
+          <Property Name="StayCost" Type="money" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="ParkingLot">
+          <Key>
+            <PropertyRef Name="ParkingLotKey" />
+          </Key>
+          <Property Name="ParkingLotKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParkingSpot">
+          <Key>
+            <PropertyRef Name="ParkingSpotKey" />
+          </Key>
+          <Property Name="ParkingSpotKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParkingSpotNumber" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="ParkingLotKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PerHourRate">
+          <Key>
+            <PropertyRef Name="PerHourRateKey" />
+          </Key>
+          <Property Name="PerHourRateKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParkingLotKey" Type="int" Nullable="false" />
+          <Property Name="PerHourRate" Type="money" Nullable="false" />
+          <Property Name="RateStart" Type="datetime" Nullable="false" />
+          <Property Name="RateEnd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_KeyCard_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="KeyCard" Type="Self.KeyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerKey" />
+            </Principal>
+            <Dependent Role="KeyCard">
+              <PropertyRef Name="CustomerKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotStay_KeyCard">
+          <End Role="KeyCard" Type="Self.KeyCard" Multiplicity="1" />
+          <End Role="LotStay" Type="Self.LotStay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyCard">
+              <PropertyRef Name="KeyCardKey" />
+            </Principal>
+            <Dependent Role="LotStay">
+              <PropertyRef Name="KeyCardKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotStay_ParkingSpot1">
+          <End Role="ParkingSpot" Type="Self.ParkingSpot" Multiplicity="1" />
+          <End Role="LotStay" Type="Self.LotStay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingSpot">
+              <PropertyRef Name="ParkingSpotKey" />
+            </Principal>
+            <Dependent Role="LotStay">
+              <PropertyRef Name="ParkingSpotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParkingSpot_ParkingLot">
+          <End Role="ParkingLot" Type="Self.ParkingLot" Multiplicity="1" />
+          <End Role="ParkingSpot" Type="Self.ParkingSpot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingLot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Principal>
+            <Dependent Role="ParkingSpot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerHourRate_ParkingLot">
+          <End Role="ParkingLot" Type="Self.ParkingLot" Multiplicity="1" />
+          <End Role="PerHourRate" Type="Self.PerHourRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingLot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Principal>
+            <Dependent Role="PerHourRate">
+              <PropertyRef Name="ParkingLotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="parkinglotModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KeyCard" EntityType="Self.KeyCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LotStay" EntityType="Self.LotStay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkingLot" EntityType="Self.ParkingLot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParkingSpot" EntityType="Self.ParkingSpot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerHourRate" EntityType="Self.PerHourRate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_KeyCard_Customer" Association="Self.FK_KeyCard_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="KeyCard" EntitySet="KeyCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotStay_KeyCard" Association="Self.FK_LotStay_KeyCard">
+            <End Role="KeyCard" EntitySet="KeyCard" />
+            <End Role="LotStay" EntitySet="LotStay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotStay_ParkingSpot1" Association="Self.FK_LotStay_ParkingSpot1">
+            <End Role="ParkingSpot" EntitySet="ParkingSpot" />
+            <End Role="LotStay" EntitySet="LotStay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkingSpot_ParkingLot" Association="Self.FK_ParkingSpot_ParkingLot">
+            <End Role="ParkingLot" EntitySet="ParkingLot" />
+            <End Role="ParkingSpot" EntitySet="ParkingSpot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerHourRate_ParkingLot" Association="Self.FK_PerHourRate_ParkingLot">
+            <End Role="ParkingLot" EntitySet="ParkingLot" />
+            <End Role="PerHourRate" EntitySet="PerHourRate" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="parkinglotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerKey" />
+          </Key>
+          <Property Name="CustomerKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cell" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KeyCards" Relationship="Self.FK_KeyCard_Customer" FromRole="Customer" ToRole="KeyCard" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="KeyCard">
+          <Key>
+            <PropertyRef Name="KeyCardKey" />
+          </Key>
+          <Property Name="KeyCardKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerKey" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_KeyCard_Customer" FromRole="KeyCard" ToRole="Customer" />
+          <NavigationProperty Name="LotStays" Relationship="Self.FK_LotStay_KeyCard" FromRole="KeyCard" ToRole="LotStay" />
+        </EntityType>
+        <EntityType Name="LotStay">
+          <Key>
+            <PropertyRef Name="LotStayKey" />
+          </Key>
+          <Property Name="LotStayKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StartStay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndStay" Type="DateTime" Precision="3" />
+          <Property Name="KeyCardKey" Type="Int32" Nullable="false" />
+          <Property Name="ParkingSpotKey" Type="Int32" Nullable="false" />
+          <Property Name="StayCost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="KeyCard" Relationship="Self.FK_LotStay_KeyCard" FromRole="LotStay" ToRole="KeyCard" />
+          <NavigationProperty Name="ParkingSpot" Relationship="Self.FK_LotStay_ParkingSpot1" FromRole="LotStay" ToRole="ParkingSpot" />
+          <Property Name="IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ParkingLot">
+          <Key>
+            <PropertyRef Name="ParkingLotKey" />
+          </Key>
+          <Property Name="ParkingLotKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ParkingSpots" Relationship="Self.FK_ParkingSpot_ParkingLot" FromRole="ParkingLot" ToRole="ParkingSpot" />
+          <NavigationProperty Name="PerHourRates" Relationship="Self.FK_PerHourRate_ParkingLot" FromRole="ParkingLot" ToRole="PerHourRate" />
+        </EntityType>
+        <EntityType Name="ParkingSpot">
+          <Key>
+            <PropertyRef Name="ParkingSpotKey" />
+          </Key>
+          <Property Name="ParkingSpotKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParkingSpotNumber" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ParkingLotKey" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LotStays" Relationship="Self.FK_LotStay_ParkingSpot1" FromRole="ParkingSpot" ToRole="LotStay" />
+          <NavigationProperty Name="ParkingLot" Relationship="Self.FK_ParkingSpot_ParkingLot" FromRole="ParkingSpot" ToRole="ParkingLot" />
+        </EntityType>
+        <EntityType Name="PerHourRate">
+          <Key>
+            <PropertyRef Name="PerHourRateKey" />
+          </Key>
+          <Property Name="PerHourRateKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParkingLotKey" Type="Int32" Nullable="false" />
+          <Property Name="PerHourRate1" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RateStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RateEnd" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ParkingLot" Relationship="Self.FK_PerHourRate_ParkingLot" FromRole="PerHourRate" ToRole="ParkingLot" />
+        </EntityType>
+        <Association Name="FK_KeyCard_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="KeyCard" Type="Self.KeyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerKey" />
+            </Principal>
+            <Dependent Role="KeyCard">
+              <PropertyRef Name="CustomerKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotStay_KeyCard">
+          <End Role="KeyCard" Type="Self.KeyCard" Multiplicity="1" />
+          <End Role="LotStay" Type="Self.LotStay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeyCard">
+              <PropertyRef Name="KeyCardKey" />
+            </Principal>
+            <Dependent Role="LotStay">
+              <PropertyRef Name="KeyCardKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LotStay_ParkingSpot1">
+          <End Role="ParkingSpot" Type="Self.ParkingSpot" Multiplicity="1" />
+          <End Role="LotStay" Type="Self.LotStay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingSpot">
+              <PropertyRef Name="ParkingSpotKey" />
+            </Principal>
+            <Dependent Role="LotStay">
+              <PropertyRef Name="ParkingSpotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParkingSpot_ParkingLot">
+          <End Role="ParkingLot" Type="Self.ParkingLot" Multiplicity="1" />
+          <End Role="ParkingSpot" Type="Self.ParkingSpot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingLot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Principal>
+            <Dependent Role="ParkingSpot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerHourRate_ParkingLot">
+          <End Role="ParkingLot" Type="Self.ParkingLot" Multiplicity="1" />
+          <End Role="PerHourRate" Type="Self.PerHourRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParkingLot">
+              <PropertyRef Name="ParkingLotKey" />
+            </Principal>
+            <Dependent Role="PerHourRate">
+              <PropertyRef Name="ParkingLotKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="parkinglotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="KeyCards" EntityType="Self.KeyCard" />
+          <EntitySet Name="LotStays" EntityType="Self.LotStay" />
+          <EntitySet Name="ParkingLots" EntityType="Self.ParkingLot" />
+          <EntitySet Name="ParkingSpots" EntityType="Self.ParkingSpot" />
+          <EntitySet Name="PerHourRates" EntityType="Self.PerHourRate" />
+          <AssociationSet Name="FK_KeyCard_Customer" Association="Self.FK_KeyCard_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="KeyCard" EntitySet="KeyCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotStay_KeyCard" Association="Self.FK_LotStay_KeyCard">
+            <End Role="KeyCard" EntitySet="KeyCards" />
+            <End Role="LotStay" EntitySet="LotStays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LotStay_ParkingSpot1" Association="Self.FK_LotStay_ParkingSpot1">
+            <End Role="ParkingSpot" EntitySet="ParkingSpots" />
+            <End Role="LotStay" EntitySet="LotStays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParkingSpot_ParkingLot" Association="Self.FK_ParkingSpot_ParkingLot">
+            <End Role="ParkingLot" EntitySet="ParkingLots" />
+            <End Role="ParkingSpot" EntitySet="ParkingSpots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerHourRate_ParkingLot" Association="Self.FK_PerHourRate_ParkingLot">
+            <End Role="ParkingLot" EntitySet="ParkingLots" />
+            <End Role="PerHourRate" EntitySet="PerHourRates" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="parkinglotModel.sysdiagram" />
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="parkinglotModelStoreContainer" CdmEntityContainer="parkinglotEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="parkinglotModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cell" ColumnName="Cell" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KeyCards">
+            <EntityTypeMapping TypeName="parkinglotModel.KeyCard">
+              <MappingFragment StoreEntitySet="KeyCard">
+                <ScalarProperty Name="KeyCardKey" ColumnName="KeyCardKey" />
+                <ScalarProperty Name="CustomerKey" ColumnName="CustomerKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LotStays">
+            <EntityTypeMapping TypeName="parkinglotModel.LotStay">
+              <MappingFragment StoreEntitySet="LotStay">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="LotStayKey" ColumnName="LotStayKey" />
+                <ScalarProperty Name="StartStay" ColumnName="StartStay" />
+                <ScalarProperty Name="EndStay" ColumnName="EndStay" />
+                <ScalarProperty Name="KeyCardKey" ColumnName="KeyCardKey" />
+                <ScalarProperty Name="ParkingSpotKey" ColumnName="ParkingSpotKey" />
+                <ScalarProperty Name="StayCost" ColumnName="StayCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkingLots">
+            <EntityTypeMapping TypeName="parkinglotModel.ParkingLot">
+              <MappingFragment StoreEntitySet="ParkingLot">
+                <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParkingSpots">
+            <EntityTypeMapping TypeName="parkinglotModel.ParkingSpot">
+              <MappingFragment StoreEntitySet="ParkingSpot">
+                <ScalarProperty Name="ParkingSpotKey" ColumnName="ParkingSpotKey" />
+                <ScalarProperty Name="ParkingSpotNumber" ColumnName="ParkingSpotNumber" />
+                <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerHourRates">
+            <EntityTypeMapping TypeName="parkinglotModel.PerHourRate">
+              <MappingFragment StoreEntitySet="PerHourRate">
+                <ScalarProperty Name="PerHourRateKey" ColumnName="PerHourRateKey" />
+                <ScalarProperty Name="ParkingLotKey" ColumnName="ParkingLotKey" />
+                <ScalarProperty Name="PerHourRate1" ColumnName="PerHourRate" />
+                <ScalarProperty Name="RateStart" ColumnName="RateStart" />
+                <ScalarProperty Name="RateEnd" ColumnName="RateEnd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="parkinglotModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

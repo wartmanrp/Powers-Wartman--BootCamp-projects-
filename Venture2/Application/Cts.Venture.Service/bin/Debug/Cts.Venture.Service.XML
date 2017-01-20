@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cts.Venture.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Cts.Venture.Service.Context">
+            <summary>
+            The class holds state information for the service layer.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Service.Context.DbContext">
+            <summary>
+            Entity Framework database context.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.Context.#ctor">
+             <summary>
+             Default constructor to initialize instance variables and properties.
+             </summary>
+             <history>
+             Date   Author    Change Reason     Change Description
+             ----------------------------------------------------------------
+            
+             ----------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.Context.Dispose">
+            <summary>
+            Disposes EF context to close db connection.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Service</c> is responsible for fulfilling system use cases. Thus, services follow the façade design pattern without
+            having to contain the business logic unless in an exceptional cases. The layer is responsible for interacting with the data layer and
+            orchestrating data management using LINQ queries. The layer wraps all changes to the domain layer in a unit of work; therefore, 
+            services always initiate a transaction wherever necessary for data integrity.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.DTOs.NamespaceDoc">
+            <summary>
+            <para>
+            The <c>Cts.Venture.Service.DTOs</c> contains POCO objects used as Data Transfer objects. The DTO supports complex data visualization required by  
+            the view component. When complex data visualization is required, the services layer aggregates all of the data into a DTO instead of an 
+            entity and returns it to the presentation layer for display.
+            </para>
+            <para>
+            When entities are inadequate for the data presentation, the application should utilize DTOs as necessary. The design intent is to allow a greater 
+            separation of concern as well as a physical boundary between the presentation and service layer. The developer should define service contracts if 
+            a physical boundary is necessary. 
+            </para>
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.Exceptions.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Service.Exceptions</c> is responsible for handling exceptions in the service layer dealing with business rules and logics.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Service.Exceptions.UserNotFoundException">
+             <summary>
+             The exception that is thrown when user is not found or credentials are not correct.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+            <param name="inner">Child exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Service.Exceptions.UserNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for serialization.
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds serialization and deserialization information.</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/> that holds streaming state.</param>
+        </member>
+        <member name="T:Cts.Venture.Service.BaseService">
+             <summary>
+             The abstract class should be inherited by all the Service classes. The class provides EF context for communicating with database.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="P:Cts.Venture.Service.BaseService.Db">
+            <summary>
+            Entity Framework database context.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Service.BaseService.#ctor(Cts.Venture.Data.VENTUREDbContext)">
+             <summary>
+             Default constructor.
+             </summary>
+             <param name="Dbctx">Entity Framework database context.</param>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="T:Cts.Venture.Service.UnitOfWork`1">
+             <summary>
+             The class provides transaction when there is need to add/update/delete multiple recores or that spans tables, databases or even instances.
+             When used, the caller need to call CommitChanges() to commit the changes. Failed to call the function will result in rolling back all the
+             changes even all the changes are valid.
+             </summary>
+             <typeparam name="T">Generic type.</typeparam>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.#ctor(`0)">
+             <summary>
+             Internal constructor to initialize transaction. 
+             </summary>
+             <param name="db">Generic type.</param>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.CommitChanges">
+             <summary>
+             Saves all the changes as an unit.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+        <member name="M:Cts.Venture.Service.UnitOfWork`1.Dispose">
+             <summary>
+             Disposes the transaction and its resources.
+             </summary>
+             <history>
+             Date       Author         Change Reason           Change Description
+             --------------------------------------------------------------------------------------------------
+            
+             --------------------------------------------------------------------------------------------------
+             </history>
+        </member>
+    </members>
+</doc>

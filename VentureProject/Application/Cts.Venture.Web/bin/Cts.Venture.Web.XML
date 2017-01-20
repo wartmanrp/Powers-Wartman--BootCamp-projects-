@@ -1,0 +1,429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cts.Venture.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Cts.Venture.Web.AuthConfig">
+            <summary>
+            Configures authenication store for the application.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.AuthConfig.RegisterAuth">
+            <summary>
+            Not Implemented.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.BundleConfig">
+            <summary>
+            Configures javascript and css bundles for the application. 
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.BundleConfig.RegisterBundles(System.Web.Optimization.BundleCollection)">
+            <summary>
+            Added javascript and css bundle to <c>bundles</c> collection.
+            </summary>
+            <param name="bundles">Configured bundle collection.</param>      
+        </member>
+        <member name="T:Cts.Venture.Web.FilterConfig">
+            <summary>
+            Configures filter attributes for the application.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            Adds filter attributes to <c>filters</c> collection.
+            </summary>
+            <param name="filters">Configured filter collection.</param>
+        </member>
+        <member name="T:Cts.Venture.Web.RouteConfig">
+            <summary>
+            Configures routes for the application.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            Addes routes to <c>routes</c> collection.
+            </summary>
+            <param name="routes">Collection of routes</param>
+        </member>
+        <member name="T:Cts.Venture.Web.Attributes.AjaxOnlyAttribute">
+            <summary>
+            The class is responsible for filtering ajax routes (calls). Any call that are not an ajax call, a  
+            <see cref="T:System.Web.HttpException"/> is thrown.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Attributes.AjaxOnlyAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            Called to validate as ajax call.    
+            </summary>
+            <param name="filterContext">The filter context.</param>
+            <exception cref="T:System.Web.HttpException">Thrown when the call is not ajax call.</exception>
+        </member>
+        <member name="T:Cts.Venture.Web.Attributes.AjaxOrChildActionAttribute">
+            <summary>
+            The class is responsible for filtering ajax and child action routes (calls). Any call that are not an ajax or child action call, a   
+            <see cref="T:System.Web.HttpException"/> is thrown.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Attributes.AjaxOrChildActionAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            Called to validate as ajax or child action call.    
+            </summary>
+            <param name="filterContext">The filter context.</param>
+            <exception cref="T:System.Web.HttpException">Thrown when the call is not ajax or child action call.</exception>
+        </member>
+        <member name="T:Cts.Venture.Web.Attributes.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web.Attributes</c> contains filter classes. The classes in the namespace filters requests according.  
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.Binders.TrimModelBinder">
+            <summary>
+            Trim leading and trailing whitespace. Also, converts just whitespaces to null.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Binders.TrimModelBinder.BindModel(System.Web.Mvc.ControllerContext,System.Web.Mvc.ModelBindingContext)">
+            <summary>
+            Implemented. Binds the model to a value by using the specified binding context to trim leading or trailing spaces.
+            </summary>
+            <param name="controllerContext">The controller context. Not used in the implementation.</param>
+            <param name="bindingContext">The binding context.</param>
+            <returns>The trimmed value. In case of empty value null is returned.</returns>
+        </member>
+        <member name="T:Cts.Venture.Web.Binders.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web.Binders</c> classes are responsible for model binder. During model binding, they perform various operations
+            such as cleaning data, formatting, and remove formatting.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.Controllers.BaseController">
+            <summary>
+            The controller class that all other controllers in the framework must inherit from. 
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.BaseController.#cctor">
+            <summary>
+            Static controller to provide static variable initializations.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Web.Controllers.BaseController.ServiceContext">
+            <summary>
+            The <see cref="T:Cts.Venture.Service.Context"/> that wraps Entity Framework context.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Web.Controllers.BaseController.PageSize">
+            <summary>
+            Default page size for table pagination. The value is populated from config file.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.BaseController.BuildFilter(System.String)">
+            <summary>
+            Parse json object to build a string representation that can be included in query.
+            </summary>
+            <param name="filterJson"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cts.Venture.Web.Controllers.ErrorController">
+            <summary>
+            The error in the framework are divided into three categories. 
+                <list type="number">
+                    <listheader>
+                        <term>term</term>
+                        <description>description</description>
+                    </listheader>
+                    <item><term>Ajax</term><description>Error occurred during ajax call.</description></item>
+                    <item><term>Mvc</term><description>Error occurred during mvc routing call.</description></item>
+                    <item><term>Non-Mvc</term><description>Error occurred before routing.</description></item>
+                </list>
+                <para>
+                The controller is used for routing and processing error Non-Mvc error information. The controller extensions method <c>ErrorViewFromString(string message)</c> or 
+                <c>ErrorViewFromString(List{T} message)</c> processes errors during ajax calls. The mvc attribute <see cref="T:System.Web.Mvc.HandleErrorAttribute"/> handles
+                Mvc specific attributes.
+                </para>
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ErrorController.HandleError(System.Exception)">
+            <summary>
+            Processed <c>ErrorNonMvc</c> view to display error information.
+            </summary>
+            <param name="exception">Contains error information.</param>
+            <returns><c>ErrorNonMvc</c> view.</returns>
+        </member>
+        <member name="T:Cts.Venture.Web.Controllers.ProjectMaintenanceController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.ProjectMaintenance(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="project"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.SaveProjectDetails(Cts.Venture.Dto.ProjectDetailsDto)">
+            <summary>
+            
+            </summary>
+            <param name="project"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.GetProjectDetailsPartial(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.GetProjectTeamPartial(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.GetAddTeamPartial(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="projId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.AddProjectTeam(Cts.Venture.Dto.ProjectTeamDto)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ProjectMaintenanceController.RemoveProjectTeam(Cts.Venture.Dto.ProjectTeamDto)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cts.Venture.Web.Controllers.ViewTodayController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ViewTodayController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ViewTodayController.GetProjectTrackingItemsPartial(Cts.Venture.Common.PaginateList.PageSortCriteria)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <param name="pageSortCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ViewTodayController.GetProjectMilestonesPartial(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cts.Venture.Web.Controllers.ViewTodayController.Search(Cts.Venture.Dto.SearchParamsDto)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cts.Venture.Web.Controllers.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web.Controllers</c> classes are responsible for responding to requests made against an ASP.NET MVC website. 
+            Each browser request is mapped to a particular controller function called as actions. 
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.ControllerExtensions">
+            <summary>
+            Defines extension for the <c>Controllers</c> in the application.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.RedirectToLocal(System.Web.Mvc.Controller)">
+            <summary>
+            Extension method to process route defined <c>Home</c> route name.
+            </summary>
+            <returns>View defined by <c>Home</c> route name.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.SetResponseError400(System.Web.Mvc.Controller)">
+            <summary>
+            Extension method to set the Response Status Code to 400 and suppresses default error handling by IIS.
+            </summary>
+            <param name="controller">Extension method for.</param>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.ErrorView(System.Web.Mvc.Controller,System.Object)">
+            <summary>
+            Extension method to process <c>Error</c> view to display model and error information.
+            </summary>
+            <param name="controller">Extension method for.</param>
+            <param name="model">Data to be displayed with the view.</param>
+            <returns><c>Error</c> view. </returns>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.ErrorView(System.Web.Mvc.Controller,System.String,System.Object)">
+            <summary>
+            Extension method to process a view to display model and error information. 
+            </summary>
+            <param name="controller">Extension method for.</param>
+            <param name="viewName">View to be processed.</param>
+            <param name="model">Data to be displayed with the view.</param>
+            <returns>Partial view defined by <c>viewName</c> param.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.ErrorViewFromString(System.Web.Mvc.Controller,System.String)">
+            <summary>
+            Extension method to process <see cref="T:System.Web.Mvc.ContentResult"/> to contain message.
+            </summary>
+            <param name="controller">Extension method for.</param>
+            <param name="message">string to be formatted for displaying as error.</param>
+            <returns><see cref="T:System.Web.Mvc.ContentResult"/> view.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.ErrorViewFromString(System.Web.Mvc.Controller,System.Collections.Generic.List{System.String})">
+            <summary>
+            Extension method to process <see cref="T:System.Web.Mvc.ContentResult"/> to contain message.
+            </summary>
+            <param name="controller">Extension method for.</param>
+            <param name="messages">string collection to be formatted for displaying as error.</param>
+            <returns><see cref="T:System.Web.Mvc.ContentResult"/> view.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.AddRuleErrors(System.Web.Mvc.ModelStateDictionary,Cts.Venture.Common.Exceptions.RulesException)">
+            <summary>
+            Extension method to add errors from a <c>RulesException</c> as model errors.
+            </summary>
+            <param name="modelState">Extension method for.</param>
+            <param name="ex">Used to build model errors.</param>
+        </member>
+        <member name="M:Cts.Venture.Web.ControllerExtensions.AddErrors(System.Web.Mvc.ModelStateDictionary,System.Exception)">
+            <summary>
+            Extension method to add inner most error from a <c>Exception</c> as model errors.
+            </summary>
+            <param name="modelState">Extension method for.</param>
+            <param name="ex">Used to build model errors.</param>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.DropDownListEx(System.Web.Mvc.HtmlHelper,System.String,System.Collections.Generic.IEnumerable{Cts.Venture.Common.ILookup},System.Object,System.Object,System.Boolean)">
+            <summary>
+            Extension method to build a dropdown list using <see cref="T:Cts.Venture.Common.ILookup"/> collection type.
+            </summary>
+            <param name="helper">Extension method for.</param>
+            <param name="name">string for name attribute value.</param>
+            <param name="list"><see cref="T:Cts.Venture.Common.ILookup"/> collection to list.</param>
+            <param name="selectedValue">Item that will be selected.</param>
+            <param name="htmlAttributes">attributes to be added to the html control.</param>
+            <param name="isOptional">true - adds an extra item at the top with empty text as Text and null as Value.</param>
+            <returns><see cref="T:System.Web.Mvc.MvcHtmlString"/> representing select element.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.IncludeHtmlActionLink(System.Web.Mvc.AjaxHelper,System.String,System.String,System.Web.Mvc.Ajax.AjaxOptions)">
+            <summary>
+            Extension method to build an anchor element that contains the URL to the specified action method;
+            when the action link is clicked, the action method is invoked asynchronously by using JavaScript.
+            </summary>
+            <param name="ajaxHelper">Extension method for.</param>
+            <param name="html">The text that will be included in the anchor element.</param>
+            <param name="actionName">The name of the action method.</param>
+            <param name="ajaxOptions">An object that provides options for the asynchronous request.</param>
+            <returns>An anchor element.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.IncludeHtmlActionLink(System.Web.Mvc.AjaxHelper,System.String,System.String,System.Object,System.Web.Mvc.Ajax.AjaxOptions,System.Object)">
+            <summary>
+            Extension method to build an anchor element that contains the URL to the specified action method;
+            when the action link is clicked, the action method is invoked asynchronously by using JavaScript.
+            </summary>
+            <param name="ajaxHelper">Extension method for.</param>
+            <param name="html">The text that will be included in the anchor element.</param>
+            <param name="actionName">The name of the action method.</param>
+            <param name="routeValues">
+            An object that contains the parameters for a route. The parameters are retrieved through reflection by 
+            examining the properties of the object. This object is typically created by using object initializer syntax.
+            </param>
+            <param name="ajaxOptions">An object that provides options for the asynchronous request.</param>
+            <param name="htmlAttributes">An object that contains the HTML attributes to set for the element.</param>
+            <returns>An anchor element.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.IncludeHtmlActionLink(System.Web.Mvc.AjaxHelper,System.String,System.String,System.String,System.Object,System.Web.Mvc.Ajax.AjaxOptions,System.Object)">
+            <summary>
+            Extension method to build an anchor element that contains the URL to the specified action method;
+            when the action link is clicked, the action method is invoked asynchronously by using JavaScript.
+            </summary>
+            <param name="ajaxHelper">Extension method for.</param>
+            <param name="html">The text that will be included in the anchor element.</param>
+            <param name="actionName">The name of the action method.</param>
+            <param name="controllerName">The name of the controller.</param>
+            <param name="routeValues">
+            An object that contains the parameters for a route. The parameters are retrieved through reflection by 
+            examining the properties of the object. This object is typically created by using object initializer syntax.
+            </param>
+            <param name="ajaxOptions">An object that provides options for the asynchronous request.</param>
+            <param name="htmlAttributes">An object that contains the HTML attributes to set for the element.</param>
+            <returns>An anchor element.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.FormatDate(System.Web.Mvc.HtmlHelper,System.Nullable{System.DateTime})">
+            <summary>
+            Extension method to build date string for nullable DateTime.
+            </summary>
+            <param name="htmlHelper">Extension method for.</param>
+            <param name="datetime">The datetime that will used to generate string.</param>
+            <returns>String representing date or empty string if the datetime parameter is null.</returns>
+        </member>
+        <member name="M:Cts.Venture.Web.HtmlHelperExtensions.FormatDate(System.Web.Mvc.HtmlHelper,System.DateTime)">
+            <summary>
+            Extension method to build date string for DateTime.
+            </summary>
+            <param name="htmlHelper">Extension method for.</param>
+            <param name="datetime">The datetime that will used to generate string.</param>
+            <returns>String representing date or empty string if the datetime is set to MinValue.</returns>
+        </member>
+        <member name="T:Cts.Venture.Web.MvcApplication">
+            <summary>
+            <see cref="T:System.Web.HttpApplication"/> object to hook into webserver pipeline.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.MvcApplication.Application_Start">
+            <summary>
+            Registers and configure all application configuration needs.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Web.MvcApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            Initialize resources for a request.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cts.Venture.Web.MvcApplication.Application_EndRequest(System.Object,System.EventArgs)">
+            <summary>
+            Destroyes resources used in the request.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Cts.Venture.Web.MvcApplication.Application_Error">
+            <summary>
+            Global exception logger.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web</c> consists of classes and resources required for User Interface.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.Extensions.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web.Extensions</c> classes add more functionality to existing classes that the developer cannot directly modify and/or 
+            functionality that are specific to current framework.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Web.Hubs.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Web.Hubs</c> demo implementation for signalr.
+            </summary>
+        </member>
+    </members>
+</doc>

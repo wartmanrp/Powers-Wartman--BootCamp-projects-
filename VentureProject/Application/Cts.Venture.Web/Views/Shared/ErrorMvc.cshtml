@@ -1,0 +1,22 @@
+@*
+    // <summary>This view is used to display information about error occurred during non ajax request and the errors that are handled by MVC HandleErrorAttribute.</summary>
+    // ********************************************************************************************************************************************
+    // Copyright (c) 2014 Computer Technology Solutions, Inc.  ALL RIGHTS RESERVED
+    // http://www.askcts.com
+    // Author: CTS, Inc.
+    // Product: Cts.Venture.Web
+    //
+    // ********************************************************************************************************************************************
+*@
+
+
+@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Cts.Venture.Web.MvcApplication.Log.Fatal(Model.Exception);
+}
+
+<div class="container alert alert-danger">
+    <span style="padding-right:20px"><i class="icon-warning-sign"></i></span>An error has occurred while processing your request. Please contact system administrator.
+</div>

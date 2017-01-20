@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.UI", "ParkingLot.UI.csproj", "{0148FE63-DBC0-46B7-9D6E-92F4FD71CB00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.Service", "..\ParkingLot.Service\ParkingLot.Service.csproj", "{E3B6C932-25D0-480A-A6B1-806DDB9F7CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.Dto", "ParkingLot.Dto\ParkingLot.Dto.csproj", "{A3966A5E-F625-4517-A7D1-03E40A5DFD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.Data", "ParkingLot.Data\ParkingLot.Data.csproj", "{79320B60-CDEB-4210-88AC-2F220BA6E241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.Common", "ParkingLot.Common\ParkingLot.Common.csproj", "{7AEAB85E-CBC7-48E2-8D79-52B6E9576CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot.Domain", "ParkingLot.Domain\ParkingLot.Domain.csproj", "{72BC0F1A-2E2B-40C9-A270-A2321AE64957}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0148FE63-DBC0-46B7-9D6E-92F4FD71CB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0148FE63-DBC0-46B7-9D6E-92F4FD71CB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0148FE63-DBC0-46B7-9D6E-92F4FD71CB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0148FE63-DBC0-46B7-9D6E-92F4FD71CB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B6C932-25D0-480A-A6B1-806DDB9F7CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B6C932-25D0-480A-A6B1-806DDB9F7CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B6C932-25D0-480A-A6B1-806DDB9F7CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B6C932-25D0-480A-A6B1-806DDB9F7CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3966A5E-F625-4517-A7D1-03E40A5DFD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3966A5E-F625-4517-A7D1-03E40A5DFD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3966A5E-F625-4517-A7D1-03E40A5DFD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3966A5E-F625-4517-A7D1-03E40A5DFD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79320B60-CDEB-4210-88AC-2F220BA6E241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79320B60-CDEB-4210-88AC-2F220BA6E241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79320B60-CDEB-4210-88AC-2F220BA6E241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79320B60-CDEB-4210-88AC-2F220BA6E241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEAB85E-CBC7-48E2-8D79-52B6E9576CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEAB85E-CBC7-48E2-8D79-52B6E9576CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEAB85E-CBC7-48E2-8D79-52B6E9576CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AEAB85E-CBC7-48E2-8D79-52B6E9576CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BC0F1A-2E2B-40C9-A270-A2321AE64957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BC0F1A-2E2B-40C9-A270-A2321AE64957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BC0F1A-2E2B-40C9-A270-A2321AE64957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BC0F1A-2E2B-40C9-A270-A2321AE64957}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.askcts.com/tfs/trainingcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ParkingLot.UI.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ParkingLot.Dto\\ParkingLot.Dto.csproj
+		SccProjectName2 = ParkingLot.Dto
+		SccLocalPath2 = ParkingLot.Dto
+		SccProjectUniqueName3 = ParkingLot.Data\\ParkingLot.Data.csproj
+		SccProjectName3 = ParkingLot.Data
+		SccLocalPath3 = ParkingLot.Data
+		SccProjectUniqueName4 = ParkingLot.Common\\ParkingLot.Common.csproj
+		SccProjectName4 = ParkingLot.Common
+		SccLocalPath4 = ParkingLot.Common
+		SccProjectUniqueName5 = ParkingLot.Domain\\ParkingLot.Domain.csproj
+		SccProjectName5 = ParkingLot.Domain
+		SccLocalPath5 = ParkingLot.Domain
+		SccProjectUniqueName6 = ..\\ParkingLot.Service\\ParkingLot.Service.csproj
+		SccProjectName6 = ../ParkingLot.Service
+		SccLocalPath6 = ..\\ParkingLot.Service
+	EndGlobalSection
+EndGlobal

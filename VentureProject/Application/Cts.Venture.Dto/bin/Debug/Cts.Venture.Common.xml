@@ -1,0 +1,688 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cts.Venture.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Cts.Venture.Common.Constant">
+            <summary>
+            The class holds all the common constants used between layers/tiers.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.Constant.DATE_FORMAT">
+            <summary>
+            Standard date format for the application
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.Constant.InfractureContext">
+            <summary>
+            String used as key during caching of service layer context.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.Exceptions.ErrorInfo">
+            <summary>
+            The class holds infromation about business rules voilation.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.Exceptions.ErrorInfo.PropertyName">
+            <summary>
+            Name of the property that has incorrect value.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.Exceptions.ErrorInfo.ErrorMessage">
+            <summary>
+            Error message associated with the incorrect value.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.Exceptions.ErrorInfo.Object">
+            <summary>
+            Extra information.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.ErrorInfo.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="propertyName">Name of the property that has incorrect value.</param>
+            <param name="errorMessage">Error message associated with the incorrect value.</param>
+            <param name="onObject">Extra information.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.ErrorInfo.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="propertyName">Name of the property that has incorrect value.</param>
+            <param name="errorMessage">Error message associated with the incorrect value.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.ErrorInfo.ToString">
+            <summary>
+            Builds string representation of the error object with <c>PropertyName</c> and <c>ErrorMessage</c>.
+            </summary>
+            <returns>string representing <c>PropertyName</c> and <c>ErrorMessage</c></returns>
+        </member>
+        <member name="T:Cts.Venture.Common.Exceptions.FrameworkException">
+            <summary>
+            Unknown error Exception for the framework
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.FrameworkException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.FrameworkException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.FrameworkException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+            <param name="inner">Child exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.FrameworkException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for serialization.
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds serialization and deserialization information.</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/> that holds streaming state.</param>
+        </member>
+        <member name="T:Cts.Venture.Common.Exceptions.NotFoundException">
+            <summary>
+            Exception for when a record can't be found
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.NotFoundException.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.NotFoundException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.NotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Message of the exception.</param>
+            <param name="inner">Child exception.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.NotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for serialization.
+            </summary>
+            <param name="info"><see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds serialization and deserialization information.</param>
+            <param name="context"><see cref="T:System.Runtime.Serialization.StreamingContext"/> that holds streaming state.</param>
+        </member>
+        <member name="T:Cts.Venture.Common.Exceptions.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Common.Exceptions</c> contains exception classes that can originate from any layer.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.Exceptions.RulesException">
+            <summary>
+            The exception class is thrown when a business rule exceptions occurrs.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.RulesException.#ctor(System.Collections.Generic.IEnumerable{Cts.Venture.Common.Exceptions.ErrorInfo})">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="errors"></param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.RulesException.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="propertyName">Property name of the domain class that has incorrect value.</param>
+            <param name="errorMessage">Error message associated with incorrect value.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.Exceptions.RulesException.#ctor(System.String,System.String,System.Object)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="propertyName">Property name of the domain class that has incorrect value.</param>
+            <param name="errorMessage">Error message associated with incorrect value.</param>
+            <param name="onObject">Extra information.</param>
+        </member>
+        <member name="P:Cts.Venture.Common.Exceptions.RulesException.Errors">
+            <summary>
+            List of <see cref="T:Cts.Venture.Common.Exceptions.ErrorInfo"/> as <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.Extensions">
+            <summary>
+            The class holds extension methods.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToPagedList``1(System.Linq.IQueryable{``0},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates a subset of this collection of objects that can be individually accessed by index and containing metadata about the collection of objects the subset was created from.
+            </summary>
+            <typeparam name="T">The type of object the collection should contain.</typeparam>
+            <param name="superset">The collection of objects to be divided into subsets. If the collection implements <see cref="T:System.Linq.IQueryable`1"/>, it will be treated as such.</param>
+            <param name="filter">The condition used to filter the result.</param>
+            <param name="sort">The column (entity property) that is used for sorting.</param>
+            <param name="order">The order used for sorting.</param>
+            <param name="index">The index of the subset of objects to be contained by this instance.</param>
+            <param name="pageSize">The maximum size of any individual subset.</param>
+            <returns>A subset of this collection of objects that can be individually accessed by index and containing metadata about the collection of objects the subset was created from.</returns>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.PagedList`1"/>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToRulesException(System.Data.Entity.Validation.DbEntityValidationException)">
+            <summary>
+            Converts the <c>DbEntityValidationException</c> to a <c>RulesException</c>.
+            </summary>
+            <param name="ve">DbEntityValidationException to convert</param>
+            <returns>Application specific rules expection <see cref="T:Cts.Venture.Common.Exceptions.RulesException"/></returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToReadableString(System.TimeSpan)">
+            <summary>
+            Formats a timespan into days, hours, minutes, seconds
+            </summary>
+            <param name="span">TimeSpan to format</param>
+            <returns>Time in string format</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToFormatString(System.Nullable{System.Double},System.String)">
+            <summary>
+            Format double values
+            </summary>
+            <param name="num">Number to format</param>
+            <param name="format">Format string</param>
+            <returns>Double formatted as a string</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToFormatString(System.Nullable{System.Double})">
+            <summary>
+            Format double values as 0.00
+            </summary>
+            <param name="amount">Number to format</param>
+            <returns>Double formatted as a string</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToFormatString(System.Boolean)">
+            <summary>
+            Format Boolean values as Yes or No
+            </summary>
+            <param name="value">Boolean value to format</param>
+            <returns>Boolean formatted as a Yes/No string</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Extensions.ToFormatString(System.Nullable{System.Boolean})">
+            <summary>
+            Format Boolean values as Yes or No
+            </summary>
+            <param name="value">Boolean value to format</param>
+            <returns>Boolean formatted as a Yes/No string</returns>
+        </member>
+        <member name="T:Cts.Venture.Common.Helpers.ConfigurationHelper">
+            <summary>
+            Reads configuration information from config file.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.ConfigurationHelper.AppSetting``1(System.String,``0)">
+            <summary>
+            Returns valud from appSettings collection in configuration file.
+            </summary>
+            <typeparam name="T">Generic type</typeparam>
+            <param name="setting">Key value of the setting used to retrieve the value</param>
+            <param name="defaultValue">Value that will be returned if appSettings entry in not found</param>
+            <returns>Generic type</returns>
+        </member>
+        <member name="T:Cts.Venture.Common.Helpers.EncryptionHelper">
+            <summary>
+            The class implemenet AES encryption algorthm. 
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.EncryptionHelper.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            Encrypts the inbound string using the provided key and initialization vector
+            </summary>
+            <param name="keyBase64String">Base64String containing the encryption key</param>
+            <param name="ivBase64String">Base64String containing the initialization vector</param>
+            <param name="plainText">Unencrypted text to be encrypted</param>
+            <returns>Encrypted byte[] containing the cipher data</returns>       
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.EncryptionHelper.Decrypt(System.String,System.String,System.Byte[])">
+            <summary>
+            Decrypts the inbound encrypted cipher using the provided key and initialization vector
+            </summary>        
+            <param name="keyBase64String">Base64String containing the encryption key</param>
+            <param name="ivBase64String">Base64String containing the initialization vector</param>
+            <param name="cipherText">Encrypted byte[] containing the data to decrypt</param>
+            <returns>Decrypted text</returns>        
+        </member>
+        <member name="T:Cts.Venture.Common.Helpers.HashHelper">
+            <summary>
+            The class implements hashing algorithm.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.HashHelper.GetHash(System.String,Cts.Venture.Common.Helpers.HashAlgorithms,System.Byte[])">
+            <summary>
+            Returns hash value for the plain text.
+            </summary>
+            <param name="plainText">Text to hash.</param>
+            <param name="hashAlgorithm">Hashing algorithm types defined in <c>HashAlgorithms</c> enum.</param>
+            <param name="saltBytes">Salt for hashing</param>
+            <returns>Hashed value from plain text.</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.HashHelper.GetHashAlgorithm(Cts.Venture.Common.Helpers.HashAlgorithms)">
+            <summary>
+            Initiates appropriate hashing algorithm implementation.
+            </summary>
+            <param name="hashAlgorithm">Defines which hashing algorithm to use.</param>
+            <returns><see cref="T:System.Security.Cryptography.HashAlgorithm"/> to use for hash.</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.HashHelper.GenerateSalt(System.Byte[])">
+            <summary>
+            Calculates salt for hash algorithm from <c>saltBytes</c>.
+            </summary>
+            <param name="saltBytes">Base salt value.</param>
+            <returns><c>byte[]</c> value used for hashing.</returns>
+        </member>
+        <member name="M:Cts.Venture.Common.Helpers.HashHelper.IsMatch(System.String,Cts.Venture.Common.Helpers.HashAlgorithms,System.String)">
+            <summary>
+            Determines if two string (one hashed and other plain text) are same.
+            </summary>
+            <param name="plainText">Plain text value to match against hashed value.</param>
+            <param name="hashAlgorithm">Hash algorithm to use.</param>
+            <param name="hashValue">Hashed value that will be used to match against.</param>
+            <returns>true - if the two values matches.</returns>
+        </member>
+        <member name="T:Cts.Venture.Common.Helpers.HashAlgorithms">
+            <summary>
+            Supported hashing algorithms.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.Helpers.HashAlgorithms.SHA1">
+            <summary>
+            The hash size for the SHA1 algorithm is 160 bits. Least secure.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.Helpers.HashAlgorithms.SHA256">
+            <summary>
+            The hash size for the SHA256 algorithm is 256 bits.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.Helpers.HashAlgorithms.SHA384">
+            <summary>
+            The hash size for the SHA384 algorithm is 384 bits
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.Helpers.HashAlgorithms.SHA512">
+            <summary>
+            The hash size for the SHA384 algorithm is 512 bits
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.Helpers.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Common.Helpers</c> implement common helper functionalities for the application. The encapsulation of common implementation to Helpers 
+            namespace increases the reuse and separation of concern. 
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.ILookup">
+            <summary>
+            The interface is implemented by domain or others to enable them to be displayed as name/value pair objects.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.ILookup.DataValue">
+            <summary>
+            The value part of the name/value pair.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.ILookup.DataText">
+            <summary>
+            The name part of the name/value pair.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Common</c> contains implementations that are common to all layers. 
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.NamespaceDoc">
+            <summary>
+            The <c>Cts.Venture.Common.PaginateList</c> implements paging and sorting for lists and grids. The presentation works PaginateList to perform server side 
+            paging and sorting. The PaginageList also offers different ways to customize the results.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.SortDirection">
+            <summary>
+            Sort direction used for server side sorting as well as UI automating.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.PaginateList.SortDirection.Ascending">
+            <summary>
+            Ascending sorting.
+            </summary>
+        </member>
+        <member name="F:Cts.Venture.Common.PaginateList.SortDirection.Descending">
+            <summary>
+            Descending sorting.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.BasePagedList`1">
+            <summary>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </summary>
+            <remarks>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </remarks>
+            <typeparam name="T">The type of object the collection should contain.</typeparam>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.IPagedList`1"/>
+            <seealso cref="T:System.Collections.Generic.List`1"/>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.Criteria">
+            <summary>
+            Page and sort critria container.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.BasePagedList`1.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor to instantiate object with specific page index and number of item to be returned for the page.
+            </summary>
+            <param name="index"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.BasePagedList`1.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of a type deriving from <see cref="T:Cts.Venture.Common.PaginateList.BasePagedList`1"/> and sets properties needed to calculate position and size data on the subset and superset.
+            </summary>
+            <param name="index">The index of the subset of objects contained by this instance.</param>
+            <param name="pageSize">The maximum size of any individual subset.</param>
+            <param name="totalItemCount">The size of the superset.</param>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.BasePagedList`1.Update(System.Int32)">
+            <summary>
+            Set number of pages from total item count.
+            </summary>
+            <param name="totalItemCount">data used to calculate.</param>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.PageCount">
+            <summary>
+            Total number of subsets within the superset.
+            </summary>
+            <value>
+            Total number of subsets within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.TotalItemCount">
+            <summary>
+            Total number of objects contained within the superset.
+            </summary>
+            <value>
+            Total number of objects contained within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.PageIndex">
+            <summary>
+            Zero-based index of this subset within the superset.
+            </summary>
+            <value>
+            Zero-based index of this subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.PageNumber">
+            <summary>
+            One-based index of this subset within the superset.
+            </summary>
+            <value>
+            One-based index of this subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.PageSize">
+            <summary>
+            Maximum size any individual subset.
+            </summary>
+            <value>
+            Maximum size any individual subset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.HasPreviousPage">
+            <summary>
+            Returns true if this is NOT the first subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is NOT the first subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.HasNextPage">
+            <summary>
+            Returns true if this is NOT the last subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is NOT the last subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.IsFirstPage">
+            <summary>
+            Returns true if this is the first subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is the first subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.BasePagedList`1.IsLastPage">
+            <summary>
+            Returns true if this is the last subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is the last subset within the superset.
+            </value>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.FilterWrapper">
+            <summary>
+            Process filter collection to getting ready for query.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.FilterWrapper.Filters">
+            <summary>
+            List of filters that are used to filter the resultset.
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.FilterWrapper.GetFilter">
+            <summary>
+            Parses the Filters value and build a formatted string for including into query.
+            </summary>
+            <returns>Formatted string for to be used in query.</returns>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.Filter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.Filter.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.Filter.PropertyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.Filter.PropertyValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.Filter.PropertyDataType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.IPagedData">
+            <summary>
+            Represents the paging data about a <c>IPagedList</c> collection.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.Criteria">
+            <summary>
+            Stores pagination and sort information.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.PageCount">
+            <summary>
+            Total number of subsets within the superset.
+            </summary>
+            <value>
+            Total number of subsets within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.TotalItemCount">
+            <summary>
+            Total number of objects contained within the superset.
+            </summary>
+            <value>
+            Total number of objects contained within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.PageIndex">
+            <summary>
+            Zero-based index of this subset within the superset.
+            </summary>
+            <value>
+            Zero-based index of this subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.PageNumber">
+            <summary>
+            One-based index of this subset within the superset.
+            </summary>
+            <value>
+            One-based index of this subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.PageSize">
+            <summary>
+            Maximum size any individual subset.
+            </summary>
+            <value>
+            Maximum size any individual subset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.HasPreviousPage">
+            <summary>
+            Returns true if this is NOT the first subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is NOT the first subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.HasNextPage">
+            <summary>
+            Returns true if this is NOT the last subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is NOT the last subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.IsFirstPage">
+            <summary>
+            Returns true if this is the first subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is the first subset within the superset.
+            </value>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.IPagedData.IsLastPage">
+            <summary>
+            Returns true if this is the last subset within the superset.
+            </summary>
+            <value>
+            Returns true if this is the last subset within the superset.
+            </value>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.IPagedList`1">
+            <summary>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </summary>
+            <remarks>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </remarks>
+            <typeparam name="T">The type of object the collection should contain.</typeparam>
+            <seealso cref="T:System.Collections.Generic.IList`1"/>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.PageSortCriteria">
+            <summary>
+            Stores paging and sorting information.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.PageSortCriteria.Page">
+            <summary>
+            Current page number.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.PageSortCriteria.Sort">
+            <summary>
+            Column to sort with. 
+            <remarks>
+            This value must match entity's property name to generate orderby clause.
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.PageSortCriteria.Order">
+            <summary>
+            Sort direction.
+            </summary>
+        </member>
+        <member name="P:Cts.Venture.Common.PaginateList.PageSortCriteria.Filter">
+            <summary>
+            Search string to generate where clause.
+            </summary>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.PagedList`1">
+            <summary>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </summary>
+            <remarks>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </remarks>
+            <typeparam name="T">The type of object the collection should contain.</typeparam>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.IPagedList`1"/>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.BasePagedList`1"/>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.StaticPagedList`1"/>
+            <seealso cref="T:System.Collections.Generic.List`1"/>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cts.Venture.Common.PaginateList.PagedList`1"/> class that divides the supplied superset into subsets the size of the supplied pageSize. The instance then only containes the objects contained in the subset specified by index.
+            </summary>
+            <param name="superset">The collection of objects to be divided into subsets. If the collection implements <see cref="T:System.Linq.IQueryable`1"/>, it will be treated as such.</param>
+            <param name="filter">The condition used to filter the result.</param>
+            <param name="sort">The column (entity property) that is used for sorting.</param>
+            <param name="order">The order used for sorting.</param>
+            <param name="index">The index of the subset of objects to be contained by this instance.</param>
+            <param name="pageSize">The maximum size of any individual subset.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">The specified index cannot be less than zero.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The specified page size cannot be less than one.</exception>
+        </member>
+        <member name="T:Cts.Venture.Common.PaginateList.StaticPagedList`1">
+            <summary>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </summary>
+            <remarks>
+            Represents a subset of a collection of objects that can be individually accessed by index and containing metadata about the superset collection of objects this subset was created from.
+            </remarks>
+            <typeparam name="T">The type of object the collection should contain.</typeparam>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.IPagedList`1"/>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.BasePagedList`1"/>
+            <seealso cref="T:Cts.Venture.Common.PaginateList.PagedList`1"/>
+            <seealso cref="T:System.Collections.Generic.List`1"/>
+        </member>
+        <member name="M:Cts.Venture.Common.PaginateList.StaticPagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Cts.Venture.Common.PaginateList.StaticPagedList`1"/> class that contains the already divided subset and information about the size of the superset and the subset's position within it.
+            </summary>
+            <param name="subset">The single subset this collection should represent.</param>
+            <param name="index">The index of the subset of objects contained by this instance.</param>
+            <param name="pageSize">The maximum size of any individual subset.</param>
+            <param name="totalItemCount">The size of the superset.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">The specified index cannot be less than zero.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">The specified page size cannot be less than one.</exception>
+        </member>
+    </members>
+</doc>

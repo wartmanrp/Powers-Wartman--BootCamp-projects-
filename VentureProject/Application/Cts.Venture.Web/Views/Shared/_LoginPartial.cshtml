@@ -1,0 +1,37 @@
+@*
+    // <summary>The view is used for gathering login credentials.</summary>
+    // ********************************************************************************************************************************************
+    // Copyright (c) 2014 Computer Technology Solutions, Inc.  ALL RIGHTS RESERVED
+    // http://www.askcts.com
+    // Author: CTS, Inc.
+    // Product: Cts.Venture.Web
+    //
+    // ********************************************************************************************************************************************
+*@
+
+<div class="pull-right">
+    <ul class="nav navbar-nav">
+        @if (Request.IsAuthenticated)
+        {
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user"></i> @User.Identity.Name<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                            Log off
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display:none" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                            }
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "submenu" })</li>
+        }
+    </ul>
+</div>

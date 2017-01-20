@@ -1,0 +1,6 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\bin\Debug\MakeReady.exe.config
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\bin\Debug\MakeReady.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\bin\Debug\MakeReady.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\obj\Debug\Cts.MakeReady.csprojResolveAssemblyReference.cache
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\obj\Debug\MakeReady.exe
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\Venture\Application\Cts.MakeReady\Cts.MakeReady\obj\Debug\MakeReady.pdb

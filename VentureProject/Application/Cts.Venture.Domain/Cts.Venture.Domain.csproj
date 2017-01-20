@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{198E3D0B-1AB7-4EE8-B56B-CF0415BB5E31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cts.Venture.Domain</RootNamespace>
+    <AssemblyName>Cts.Venture.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Cts.Venture.Domain.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspnetApplication.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspnetRole.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspnetSchemaVersion.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspnetUser.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Business\GenerateNewProjectNumber.cs" />
+    <Compile Include="Business\GetPercentComplete.cs" />
+    <Compile Include="Business\ProjectStatusFlags.cs" />
+    <Compile Include="Business\CheckProjectMilestones.cs" />
+    <Compile Include="Business\CheckTrackingItems.cs" />
+    <Compile Include="ConsensusRatingCategory.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialInformation.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Impact.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Indicator.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Issue.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IssueStatu.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IssueType.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LessonLearned.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LessonLearnedType.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lob.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Probability.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectConsensusRating.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectGoal.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectHealth.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectLevel.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectMilestone.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectProjectHealth.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectRating.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectRatingHistory.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectRatingText.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectStandardMilestone.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectStatu.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTeam.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectTeamRole.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Risk.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RiskStatu.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StandardMilestone.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="State.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeamRole.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Domain.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cts.Venture.Common\Cts.Venture.Common.csproj">
+      <Project>{a29774ed-2f8f-4f6f-ab34-a5a9e9ff2269}</Project>
+      <Name>Cts.Venture.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Domain.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

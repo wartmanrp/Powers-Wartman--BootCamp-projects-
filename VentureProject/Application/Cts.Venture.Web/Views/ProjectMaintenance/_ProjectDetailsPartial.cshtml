@@ -1,0 +1,165 @@
+﻿@using Cts.Venture.Web
+@model Cts.Venture.Dto.ProjectDetailsDto
+@Scripts.Render("~/bundles/val")
+@*<form method="post" class="form-inline" action="~/Controllers/ProjectMaintenance/Save">*@
+@using (Html.BeginForm("SaveProjectDetails", "ProjectMaintenance", FormMethod.Post, new { @id = "detailsform" }))
+{
+@Html.AntiForgeryToken()
+@Html.HiddenFor(x => x.ProjectId)
+@Html.HiddenFor(x => x.ProjectSeqNumber)
+    @Html.ValidationSummary()
+
+<div class="row">
+    <!--left column-->
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectNumber" class="col-md-4">Project Number</label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(x => x.ProjectNumber, new { @class = "form-control", @readonly = "readonly"})
+            </div>
+        </div>
+    </div> <!--ProjectNumber-->
+    <div class="col-md-8">
+        <div class="form-group">
+            <label for="Project Name" class="col-md-2">Project Name</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.ProjectName, new { @class = "form-control"})
+                @Html.ValidationMessageFor(x => x.ProjectName)
+            </div>
+        </div>
+    </div><!--ProjectName-->
+</div> <!--row 1-->
+
+<div class="row">
+<!--right column-->
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectStatus" class="col-md-4">Project Status</label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(x => x.ProjectStatus, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+    </div><!--ProjectStatus-->
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectCompletion" class="col-md-4">Project Completion</label>
+            <div class="col-md-8">
+                @Html.TextBoxFor(x => x.ProjectCompletion, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+    </div> <!--ProjectCompletion-->
+
+    <div class="col-md-4">
+        <div class="form-group row">
+            <div class="col-md-8 col-md-offset-4">
+                <div class="form-check">
+                    <label class="form-check-label">                        
+                        @Html.EditorFor(x => x.AddToWatchList, new { @class = "form-check-input"})
+                        @*<input type="checkbox" name ="AddToWatchList" id="watchlist" class="form-check-input" checked="@Model.AddToWatchList" />*@
+                        Add to Watchlist
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div> <!--AddtoWatchlist-->
+</div> <!--row 2-->
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectGoal" class="col-md-4">Project Goal</label>
+            <div class="col-md-8">
+                @Html.DropDownListEx("ProjectGoalId", Model.ProjectGoalsList, Model.ProjectGoalId, new { @class = "form-control" })
+            </div>
+        </div>
+    </div><!--ProjectGoal-->
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectLevel" class="col-md-4">Project Level</label>
+            <div class="col-md-8">
+                @Html.DropDownListEx("ProjectLevelId", Model.ProjectLevelsList, Model.ProjectLevelId, new { @class = "form-control" })
+            </div>
+        </div>
+    </div><!--ProjectLevel-->
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="ProjectIndicator" class="col-md-4">Project Indicator</label>
+            <div class="col-md-8">
+                @Html.DropDownListEx("ProjectIndicatorId", Model.IndicatorsList, Model.ProjectIndicatorId, new { @class = "form-control" })
+            </div>
+        </div>
+    </div><!--ProjectIndicator-->
+</div> <!--row 3-->
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="LOB" class="col-md-4">Line of Business</label>
+            <div class="col-md-8">
+                @Html.DropDownListEx("LobId", Model.LobsList, Model.LobId, new { @class = "form-control" })
+            </div>
+        </div><!--LOB-->
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="Department" class="col-md-4">Department</label>
+            <div class="col-md-8">
+                @Html.DropDownListEx("DepartmentId", Model.DepartmentsList, Model.DepartmentId, new { @class = "form-control" })
+            </div>
+        </div>
+    </div><!--Department-->
+</div> <!--row 4-->
+
+<hr />
+<!--text boxes at the bottom-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group form-inline">
+            @Html.LabelFor(x => x.BusinessIssue, new { @class = "col-md-2"})
+            @*<label class="col-md-2 col-form-label" for="BusinessIssue">Business Issue</label>*@
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.BusinessIssue, new { @class = "form-control", rows = "5", cols = "80"})
+            </div>
+        </div>
+    </div>
+</div><!--BusinessIssue-->
+   <br />
+<div class="row">
+    <div class="col-md-12">
+        
+        <div class="form-group form-inline">
+            @Html.LabelFor(x => x.Solution, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.Solution, new { @class = "form-control", rows = "5", cols = "80" })
+            </div>
+        </div>
+    </div>
+</div><!--Solution-->
+   <br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group form-inline">
+            @Html.LabelFor(x => x.Benefits, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.Benefits, new { @class = "form-control", rows = "5", cols = "80" })
+            </div>
+        </div>
+    </div>
+</div><!--Benefits-->
+   <br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group form-inline">
+            @Html.LabelFor(x => x.ProjectDirectory, new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(x => x.ProjectDirectory, new { @class = "form-control", rows = "1", cols = "80" })
+                @Html.ValidationMessageFor(x => x.ProjectDirectory)
+            </div>
+        </div>
+    </div>
+</div><!--ProjectDirectory-->
+@*<input type="submit" value="Submit" class="btn btn-success" />*@
+}
+@*</form>*@
+<!--end form-->

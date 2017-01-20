@@ -1,0 +1,13 @@
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Data.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Data.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\EntityFramework.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Common.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Domain.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Common.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\ParkingLot.Domain.pdb
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\EntityFramework.xml
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\obj\Debug\ParkingLot.Data.csprojResolveAssemblyReference.cache
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\obj\Debug\ParkingLot.Data.dll
+C:\Users\pwartman\Source\Workspaces\Bootcamp2016Aug\Powers Wartman\ParkingLot\ParkingLot.UI\ParkingLot.Data\obj\Debug\ParkingLot.Data.pdb
